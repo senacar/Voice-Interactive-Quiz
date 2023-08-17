@@ -171,20 +171,24 @@ function displayFeedback(feedback) {
   readAloud(feedback);
 }
 
+const desiredVoiceLang = 'en-GB';
+let selectedVoice;
 
+// Set up voice selection when voices are available
+speechSynthesis.onvoiceschanged = () => {
+  const voices = speechSynthesis.getVoices();
+  selectedVoice = voices.find(voice => voice.lang.startsWith(desiredVoiceLang)) || voices[0];
+};
 
 // Read the given text aloud using text-to-speech
 function readAloud(text) {
   const speech = new SpeechSynthesisUtterance();
   speech.text = text;
 
-  const desiredVoiceLang = 'en-GB';
-  const voices = speechSynthesis.getVoices();
-  const selectedVoice = voices.find(voice => voice.lang.startsWith(desiredVoiceLang)) || voices[0];
-
-  speech.voice = selectedVoice;
-
-  speechSynthesis.speak(speech);
+if (selectedVoice) {
+    speech.voice = selectedVoice;
+    speechSynthesis.speak(speech);
+  }
  }
 
 // End the game
