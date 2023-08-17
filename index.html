@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SpeakTrivia</title>
+  <style>
+    body {
+      background-color: #121640;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #questionContainer {
+      display: none;
+      text-align: center;
+      padding: 5px;
+      border-radius: 3px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #121640;
+    }
+    #question {
+      color: #ffff; 
+      font-size: 20px; 
+      font-weight: bold; 
+      margin-bottom: 15px; 
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 7px 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #00c4cc;
+      color: #ffff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #55b3d6;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 70%;
+      margin: 10px auto;
+      display: block;
+    }
+    #feedback {
+      margin-top: 20px;
+      text-align: center;
+      font-style: italic;
+      color: #ffff;
+    }
+    #gameOverFeedback {
+      margin-top: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-style: italic;
+      color: #ffff;
+
+    }
+
+    
+  </style>
+</head>
+<body>
+  <img src="SpeakTrivia.png" alt="">
+  <button id="startButton">Start Game</button>
+
+ 
+
+  <div id="questionContainer">
+    <h2 id="question">Question Placeholder</h2>
+    <input type="text" id="answerInput" placeholder="Enter your answer">
+    <button id="nextButton">Next</button>
+    <p id="feedback"></p>
+  </div>
+
+  <div id="gameOverContainer" style="display: none;">
+    <p id="gameOverFeedback">Game Over!</p>
+  </div>
+  
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+
