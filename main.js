@@ -40,7 +40,6 @@ let questions = [
     answer: "no",
     explanation: "Water, with the chemical formula H2O, is a compound composed of two hydrogen atoms and one oxygen atom. It is not an element."
   }
-  // Add more questions and answers as needed
 ];
 
 let currentQuestionIndex = 0;
@@ -186,7 +185,7 @@ speechSynthesis.onvoiceschanged = () => {
   selectedVoice = voices.find(voice => voice.lang.startsWith(desiredVoiceLang)) || voices[0];
 };
 
-// Read the given text aloud using text-to-speech
+// Reads the given text aloud using text-to-speech
 function readAloud(text) {
   const speech = new SpeechSynthesisUtterance();
   speech.text = text;
@@ -199,9 +198,9 @@ if (selectedVoice) {
 
 // End the game
 function endGame() {
-  console.log("End game function called"); // Add this line for debugging
+  console.log("End game function called");
   document.getElementById('questionContainer').style.display = 'none';
-  document.getElementById('gameOverContainer').style.display = 'block'; // Show the "Game Over" container
+  document.getElementById('gameOverContainer').style.display = 'block'; 
   readAloud("Game Over!");
   stopSpeechRecognition();
 }
