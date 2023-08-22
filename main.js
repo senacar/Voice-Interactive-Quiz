@@ -107,14 +107,20 @@ function startSpeechRecognition() {
 
 recognition.onresult = function (event) {
   if (isSpeechRecognitionActive) {
-  userVoiceAnswer = event.results[event.results.length - 1][0].transcript;
-  console.log('User voice answer:', userVoiceAnswer);
-  // Only process voice answer if it's not empty
-  if (userVoiceAnswer.trim() !== '') {
-  document.getElementById('answerInput').value = userVoiceAnswer;
-  processAnswer(); // Process the user's answer and display feedback
+    userVoiceAnswer = event.results[event.results.length - 1][0].transcript;
+    console.log('User voice answer:', userVoiceAnswer);
+    
+    // Clean and lowercase the user's voice answer
+    const cleanedAnswer = userVoiceAnswer.trim().toLowerCase();
+    
+    // Check if the cleaned answer is either "yes" or "no"
+    if (cleanedAnswer === "yes" || cleanedAnswer === "no") {
+      document.getElementById('answerInput').value = cleanedAnswer;
+      processAnswer(); // Process the user's answer and display feedback
+    } else {
+      console.log('Unrecognized answer:', userVoiceAnswer);
+    }
   }
-}
 };
 
 // Display the current question and read it aloud
