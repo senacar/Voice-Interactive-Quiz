@@ -12,32 +12,32 @@ let userVoiceAnswer = ''; // Variable to store the user's voice answer
 let questions = [
   {
     question: "Is the Great Wall of China visible from space?",
-    answer: ["no", "nope", "nah", "never", "not at all", "false", "incorrect"],
+    answer: "no",
     explanation: "Despite a popular belief, the Great Wall of China cannot be seen from space with the naked eye."
   },
   {
     question: "Is the Mona Lisa a painting by Vincent van Gogh?",
-    answer: ["no", "nope", "nah", "never", "not at all", "false", "incorrect"],
+    answer: "no",
     explanation: "The Mona Lisa is a famous painting created by Leonardo da Vinci, not Vincent van Gogh."
   },
   {
     question: "Did Neil Armstrong walk on the moon in 1969?",
-    answer: ['yes', 'yeah', 'yup', 'yep', 'sure', 'exactly', 'absolutely', 'true', "correct", "right"],
+    answer: 'yes',
     explanation: "Neil Armstrong, along with Buzz Aldrin, became the first astronauts to walk on the moon during the Apollo 11 mission in 1969."
   },
   {
     question: "Is the currency of Japan called the yen?",
-    answer: ['yes', 'yeah', 'yup', 'yep', 'sure', 'exactly', 'absolutely', 'true', "correct", "right"],
+    answer: 'yes',
     explanation: "The official currency of Japan is the yen, which is denoted by the symbol ¥."
   },
   {
     question: "Is soccer called football in the United States?",
-    answer: ["no", "nope", "nah", "never", "not at all", "false", "incorrect"],
+    answer: "no",
     explanation: "In the United States, the sport commonly referred to as soccer is called soccer, while football generally refers to American football."
   },
   {
     question: "Is water an element on the periodic table?",
-    answer: ["no", "nope", "nah", "never", "not at all", "false", "incorrect"],
+    answer: "no",
     explanation: "Water, with the chemical formula H2O, is a compound composed of two hydrogen atoms and one oxygen atom. It is not an element."
   }
   // Add more questions and answers as needed
@@ -161,7 +161,7 @@ function checkAnswer(userAnswer) {
   }
 
   const UserAnswer = userAnswer.toLowerCase();
-  if (currentQuestion.answer.includes(UserAnswer)) {
+  if (currentQuestion.answer == userAnswer) {
     displayFeedback("Correct! "+ exp);
   } else {
     displayFeedback("Incorrect. "+ exp);
