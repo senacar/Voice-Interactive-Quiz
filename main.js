@@ -127,6 +127,9 @@ recognition.onresult = function (event) {
     if (cleanedAnswer === "next") {
       nextQuestion(); // Trigger the "Next" action
     }
+    if (cleanedAnswer === "repeat") {
+      repeatQuestion();
+    }
     else {
       console.log('Unrecognized answer:', userVoiceAnswer);
     }
@@ -148,6 +151,11 @@ function showQuestion() {
     document.getElementById('answerInput').value = userVoiceAnswer;
     processAnswer(); // Process the user's answer and display feedback
   }
+}
+
+function repeatQuestion() {
+  const currentQuestionText = currentQuestion.question;
+  readAloud(currentQuestionText);
 }
 
 // Process the user's answer
