@@ -174,6 +174,7 @@ function processAnswer() {
   checkAnswer(userAnswer);
 }
 
+let userScore=0;
 // Check if the user's answer is correct and display feedback 
 function checkAnswer(userAnswer) {
   exp= currentQuestion.explanation;
@@ -184,6 +185,7 @@ function checkAnswer(userAnswer) {
 
   const UserAnswer = userAnswer.toLowerCase();
   if (currentQuestion.answer == userAnswer) {
+    userScore++;
     displayFeedback("Correct! "+ exp);
   } else  {
     displayFeedback("Incorrect. "+ exp);
