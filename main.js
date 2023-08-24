@@ -54,6 +54,10 @@ document.getElementById('startButton').addEventListener('click', () => {
 function nextQuestion() {
   userVoiceAnswer = ''; // Clear the user's voice answer before moving to the next question
   currentQuestionIndex++;
+
+    // Cancel any ongoing speech synthesis
+  speechSynthesis.cancel();
+  
   if (currentQuestionIndex < questions.length) {
     const feedbackDiv = document.getElementById('feedback'); // Get the feedback element
     if (feedbackDiv) {
