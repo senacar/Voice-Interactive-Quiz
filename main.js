@@ -221,7 +221,10 @@ function endGame() {
   console.log("End game function called"); // Add this line for debugging
   document.getElementById('questionContainer').style.display = 'none';
   document.getElementById('gameOverContainer').style.display = 'block'; // Show the "Game Over" container
-  readAloud("Game Over!");
+  const userScoreElement = document.getElementById('userScore');
+  userScoreElement.textContent = `You answered ${userScore} out of ${questions.length} questions correctly.`;
+
+  readAloud("Game Over! " + `You answered ${userScore} out of ${questions.length} questions correctly.`)
   stopSpeechRecognition();
 }
 
